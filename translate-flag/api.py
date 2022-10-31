@@ -78,7 +78,7 @@ class GoogleTranslateAPI:
             await self.bot.wait_until_red_ready()
         else:
             await self.bot.wait_until_ready()
-        while self is self.bot.get_cog("Translate"):
+        while self is self.bot.get_cog("TranslateFlag"):
             # cleanup the cache every 10 minutes
             self.cache["translations"] = []
             await asyncio.sleep(600)
