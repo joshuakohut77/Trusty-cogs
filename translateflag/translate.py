@@ -105,7 +105,7 @@ class TranslateFlag(GoogleTranslateAPI, commands.Cog):
             self._guild_counter[g_id] = data["count"]
 
     @commands.command()
-    async def translate(
+    async def translateflag(
         self,
         ctx: commands.Context,
         to_language: FlagTranslation,
