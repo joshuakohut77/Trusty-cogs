@@ -166,13 +166,13 @@ class TranslateFlag(GoogleTranslateAPI, commands.Cog):
                 await ctx.send(translated_text)
 
     @commands.group()
-    async def translateset(self, ctx: commands.Context) -> None:
+    async def translateflagset(self, ctx: commands.Context) -> None:
         """
         Toggle the bot auto translating
         """
         pass
 
-    @translateset.command(name="stats")
+    @translateflagset.command(name="stats")
     async def translate_stats(self, ctx: commands.Context, guild_id: Optional[int]):
         """
         Shows translation usage
@@ -203,7 +203,7 @@ class TranslateFlag(GoogleTranslateAPI, commands.Cog):
             msg += tr_keys[key] + f" **{value}**\n"
         await ctx.maybe_send_embed(msg)
 
-    @translateset.group(aliases=["blocklist"])
+    @translateflagset.group(aliases=["blocklist"])
     @checks.mod_or_permissions(manage_messages=True)
     @commands.guild_only()
     async def blacklist(self, ctx: commands.Context) -> None:
@@ -214,7 +214,7 @@ class TranslateFlag(GoogleTranslateAPI, commands.Cog):
         """
         pass
 
-    @translateset.group(aliases=["allowlist"])
+    @translateflagset.group(aliases=["allowlist"])
     @checks.mod_or_permissions(manage_messages=True)
     @commands.guild_only()
     async def whitelist(self, ctx: commands.Context) -> None:
@@ -355,7 +355,7 @@ class TranslateFlag(GoogleTranslateAPI, commands.Cog):
             _("`{blacklisted}` are currently blacklisted.").format(blacklisted=blacklist_s)
         )
 
-    @translateset.command(aliases=["reaction", "reactions"])
+    @translateflagset.command(aliases=["reaction", "reactions"])
     @checks.mod_or_permissions(manage_channels=True)
     @commands.guild_only()
     async def react(self, ctx: commands.Context) -> None:
@@ -374,7 +374,7 @@ class TranslateFlag(GoogleTranslateAPI, commands.Cog):
         msg = _("Reaction translations have been turned ")
         await ctx.send(msg + verb)
 
-    @translateset.command(aliases=["multi"])
+    @translateflagset.command(aliases=["multi"])
     @checks.is_owner()
     @commands.guild_only()
     async def multiple(self, ctx: commands.Context) -> None:
@@ -394,7 +394,7 @@ class TranslateFlag(GoogleTranslateAPI, commands.Cog):
         msg = _("Multiple translations have been turned ")
         await ctx.send(msg + verb)
 
-    @translateset.command(aliases=["cooldown"])
+    @translateflagset.command(aliases=["cooldown"])
     @checks.is_owner()
     @commands.guild_only()
     async def timeout(self, ctx: commands.Context, time: int) -> None:
@@ -411,7 +411,7 @@ class TranslateFlag(GoogleTranslateAPI, commands.Cog):
         msg = _("Translation timeout set to {time}s.").format(time=time)
         await ctx.send(msg)
 
-    @translateset.command(aliases=["flags"])
+    @translateflagset.command(aliases=["flags"])
     @checks.mod_or_permissions(manage_channels=True)
     @commands.guild_only()
     async def flag(self, ctx: commands.Context) -> None:
@@ -430,7 +430,7 @@ class TranslateFlag(GoogleTranslateAPI, commands.Cog):
         msg = _("Flag emoji translations have been turned ")
         await ctx.send(msg + verb)
 
-    @translateset.command()
+    @translateflagset.command()
     @checks.is_owner()
     async def creds(self, ctx: commands.Context) -> None:
         """
