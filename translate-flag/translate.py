@@ -31,7 +31,7 @@ log = logging.getLogger("red.trusty-cogs.Translate")
 
 
 @cog_i18n(_)
-class Translate(GoogleTranslateAPI, commands.Cog):
+class TranslateFlag(GoogleTranslateAPI, commands.Cog):
     """
     Translate messages using Google Translate
     """
